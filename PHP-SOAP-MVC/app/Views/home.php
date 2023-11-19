@@ -38,7 +38,7 @@
 
     <header>
         <h1>PHP - Soap MVC</h1>
-        <p class="github-link"><a href="https://github.com/your-username/your-framework" target="_blank">GitHub Documentation</a></p>
+        <p class="github-link"><a href="https://github.com/soap404/PHP-SOAP-MVC" target="_blank">GitHub Documentation</a></p>
     </header>
 
     <!-- Your framework content goes here -->
