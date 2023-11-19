@@ -15,49 +15,86 @@ This framework incorporates essential components for starting a project using th
 
 ## Getting Started
 
-To begin using the framework, follow these steps:
+### Download and Setup
 
-1. Download the framework files and place them in your `htdocs` directory.
+1. **Download Framework Files:**
+   - Download the framework files and place them in your `htdocs` directory.
 
-2. Open your Apache `httpd-vhosts.conf` file located at `apache\conf\extra\httpd-vhosts.conf`.
+2. **Configure Apache Virtual Host:**
+   - Open your Apache `httpd-vhosts.conf` file located at `apache\conf\extra\httpd-vhosts.conf`.
 
-3. Create a virtual host entry by specifying the path to the public directory of the framework. You can customize the local domain (`mvc.local` in this example).
+   - Add the following virtual host entry, customizing the local domain and path:
+     ```apache
+     <VirtualHost mvc.local:80>
+         DocumentRoot "YOUR_PATH/htdocs/MVC/public"
+         ServerName mvc.local
+         <Directory "YOUR_PATH /htdocs/MVC/public">
+             Options Indexes FollowSymLinks
+             AllowOverride All
+             Require all granted
+         </Directory>
+     </VirtualHost>
+     ```
+     Ensure to replace `YOUR_PATH` with the actual path to your project.
 
-    ```apache
-    <VirtualHost mvc.local:80>
-        DocumentRoot "YOUR PATH/htdocs/MVC/public"
-        ServerName mvc.local
-        <Directory "YOUR PATH /htdocs/MVC/public">
-            Options Indexes FollowSymLinks
-            AllowOverride All
-            Require all granted
-        </Directory>
-    </VirtualHost>
-    ```
+### Update Hosts File
 
-    Ensure that `YOUR PATH` is replaced with the actual path to your project.
+#### Windows:
 
-4. Update your hosts file based on your operating system:
+1. Open Notepad as Administrator:
+   - Right-click on Notepad in the Start menu.
+   - Select "Run as administrator."
 
-    - **Windows**: Open `c:\Windows\System32\Drivers\etc\hosts` file and add:
-        ```
-        127.0.0.1 mvc.local
-        ```
-    - **Linux**: Open `/etc/hosts` file and add the line:
-        ```
-        127.0.0.1 mvc.local
-        ```
-    - **Mac**: Open `/private/etc/hosts` file and add:
-        ```
-        127.0.0.1 mvc.local
-        ```
+2. Open the Hosts File:
+   - Go to `File` -> `Open`.
+   - Navigate to `C:\Windows\System32\drivers\etc`.
+   - Select "All Files" from the file type dropdown and open the `hosts` file.
 
-5. Save the changes.
+3. Edit the Hosts File:
+   - Add the following line at the end:
+     ```
+     127.0.0.1 mvc.local
+     ```
 
-6. Open your browser and navigate to `mvc.local`. You should see the framework in action.
+4. Save Changes:
+   - Save the hosts file.
 
-This setup allows you to create a virtual host and access your application with a custom local domain. The provided framework is now ready for you to build upon for your PHP projects.
+#### Linux and Mac:
 
+1. Open a Terminal Window:
+   - Launch the terminal.
+
+2. Open the Hosts File with a Text Editor (Use either Nano or Vim):
+   - Using Nano:
+     ```bash
+     sudo nano /etc/hosts
+     ```
+   - Using Vim:
+     ```bash
+     sudo vim /etc/hosts
+     ```
+
+   Enter your password when prompted.
+
+3. Navigate to the End of the File:
+   - Use arrow keys to move the cursor to the end.
+
+4. Add the Following Line:
+   ```
+   127.0.0.1 mvc.local
+   ```
+
+5. Save and Exit:
+   - For Nano, press `Ctrl` + `X`, then `Y` to confirm changes, and `Enter` to save.
+   - For Vim, press `Esc`, type `:wq`, and press `Enter` to save and exit.
+
+### Test Your Application
+
+6. Save your changes.
+
+7. Open your browser and navigate to `mvc.local`. You should see the framework in action.
+
+Now, your system is set up to run the PHP-SOAP-MVC framework, and you can access your application using the custom local domain.
 
 
 
